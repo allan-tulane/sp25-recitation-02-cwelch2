@@ -17,8 +17,13 @@ def simple_work_calc(n, a, b):
 
 	Returns: the value of W(n).
 	"""
-	# TODO
-	pass
+	# Base case: if n is 1, return the minimal work done, which is 1
+	if n == 1:
+		return 1
+	# Recursive case: calculate the work by branching a time and dividing input by b in each call,
+	# then add work done at current level
+	return a * simple_work_calc(n//b, a, b) + n
+
 
 def work_calc(n, a, b, f):
 	"""Compute the value of the recurrence $W(n) = aW(n/b) + f(n)
@@ -32,8 +37,12 @@ def work_calc(n, a, b, f):
 
 	Returns: the value of W(n).
 	"""
-	# TODO
-	pass
+	# Base case: if n is 1, return the work done at this node
+	if n == 1:
+		return f(n)
+	# Recursive case: calculate the work by branching a time and dividing input by b in each call,
+	# then add work done at current level
+	return a * work_calc(n//b, a, b, f) + f(n)
 
 def span_calc(n, a, b, f):
 	"""Compute the span associated with the recurrence $W(n) = aW(n/b) + f(n)
@@ -47,8 +56,11 @@ def span_calc(n, a, b, f):
 
 	Returns: the value of W(n).
 	"""
-	# TODO
-	pass
+	# Base case: if n is 1, return the span at this node
+	if n == 1:
+		return f(n)
+	# Recursive case: span is the longest path of execution, which comes from deepest level of recursion
+	return span_calc(n // b, a, b, f) + f(n)
 
 
 
@@ -101,4 +113,3 @@ def compare_span(span_fn1, span_fn2, sizes=[10, 20, 50, 100, 1000, 5000, 10000])
 			))
 	return result
 	
-

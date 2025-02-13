@@ -37,12 +37,27 @@ where $W(1) = 1$.
 
 - [ ] 4. (2 point) Now, derive the asymptotic behavior of $W(n)$ using $f(n) = 1$, $f(n) = \log n$ and $f(n) = n$. Then, generate actual values for $W(n)$ for your code and confirm that the trends match your derivations.
 
-**TODO: your answer goes here**
+**TODO: your answer goes here: <br />The asymptotic behavior of W(n) is as follows<br /> 
+f(n) = 1: the recurrence is: W(n) = 2W(n/2) + 1, which results in W(n) = O(n^(log<sub>2</sub>2)) = O(n)
+for the actual values when a = 2 and b = 2, the values grow linearly, which confirms Θ(n)**
+
+**<br /> f(n) = log n: the recurrence is: W(n) = 2W(n/2) + log n, which results in W(n) = O(n log n), so the actual values should grow at this rate. For a = 2 and b = 2, the values reflect a n log n growth pattern.**
+
+**<br /> f(n) = n: the recurrence is: W(n) = 2W(n/2) + n, which results in W(n) = O(n^(log<sub>2</sub>2)) = O(n).
+For the actual values when a = 2 and b = 2, the values grow linearly, which confirms Θ(n)**
+
 
 - [ ] 5. (4 points) Now that you have a nice way to empirically generate valuess of $W(n)$, we can look at the relationship between $a$, $b$, and $f(n)$. Suppose that $f(n) = n^c$. What is the asypmptotic behavior of $W(n)$ if $c < \log_b a$? What about $c > \log_b a$? And if they are equal? Modify `test_compare_work` to compare empirical values for different work functions (at several different values of $n$) to justify your answer. 
 
-**TODO: your answer goes here**
+**TODO: your answer goes here: <br />
+Case 1 c < log<sub>b</sub>a: the asymptotic behavior is W(n) = O(n^(log<sub>b</sub>a)). Example: a = 2, b = 2, c = 0.5 -> log<sub>b</sub>a = 1 -> O(n) <br />
+<br /> c > log<sub>b</sub>a: the asymptotic behavior is W(n) = O(n^(c)). Example: a = 2, b = 2, c = 2 -> log<sub>b</sub>a = 1 -> O(n^2)<br />
+<br /> c = log<sub>b</sub>a: the asymptotic behavior is W(n) = O(n^(c)log n). Example: a = 2, b = 2, c = 1 -> log<sub>b</sub>a = 1 -> O(n log n)**
 
 - [ ] 6. (3 points) $W(n)$ is meant to represent the running time of some recursive algorithm. Suppose we always had $a$ processors available to us and we wanted to compute the span of the same algorithm. Implement the function `span_calc` to compute the empirical span, where the work of the algorithm is given by $W(n)$. Implement `test_compare_span` to create a new comparison function for comparing span functions. Derive the asymptotic expressions for the span of the recurrences you used in problem 4 above. Confirm that everything matches up as it should. 
 
-**TODO: your answer goes here**
+**TODO: your answer goes here: <br />
+The asymptotic expressions for the spans of the recurrences are: <br />
+c < log<sub>b</sub>1 -> S(n) = O(log n)
+c = log<sub>b</sub>1 -> S(n) = O(n log n)
+c > log<sub>b</sub>1 -> S(n) = O(n^c)**
