@@ -57,7 +57,7 @@ Case 1 c < log<sub>b</sub>a: the asymptotic behavior is W(n) = O(n^(log<sub>b</s
 - [ ] 6. (3 points) $W(n)$ is meant to represent the running time of some recursive algorithm. Suppose we always had $a$ processors available to us and we wanted to compute the span of the same algorithm. Implement the function `span_calc` to compute the empirical span, where the work of the algorithm is given by $W(n)$. Implement `test_compare_span` to create a new comparison function for comparing span functions. Derive the asymptotic expressions for the span of the recurrences you used in problem 4 above. Confirm that everything matches up as it should. 
 
 **TODO: your answer goes here: <br />
-The asymptotic expressions for the spans of the recurrences are: <br />
-c < log<sub>b</sub>1 -> S(n) = O(log n)
-c = log<sub>b</sub>1 -> S(n) = O(n log n)
-c > log<sub>b</sub>1 -> S(n) = O(n^c)**
+The asymptotic expressions for the spans of the recurrences are: 
+<br />c < log<sub>b</sub>1 -> S(n) = O(log n)
+<br />c = log<sub>b</sub>1 -> S(n) = O(n log n)
+<br />c > log<sub>b</sub>1 -> S(n) = O(n^c)**
